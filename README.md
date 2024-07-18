@@ -3,23 +3,18 @@ Bookman Cockpit Linux Edition
 
 This is a small script that downloads the windows installer from their website, unpacks it, replaces the platform detection and start it up similar to how the `bookman.exe` would do on windows.
 
-Dependencies
-------------
+Running
+-------
 
-Bookman's windows installer bundles these, but only for windows (obviously). This script expects them on the system.
 
-For bookman:
+```bash
+nix run github:csicar/bookman-linux
+```
 
-* Java 17 (bookman bundles eclipse-temurin)
-* OpenJFX 17 (jars expected in `$JAVA_HOME/lib`)
 
-For the script:
+AppImage for non-nix installs
+----------------------------
 
-* curl
-* unzip
-
-Packages
---------
-
-* AUR: https://aur.archlinux.org/packages/bookman-cockpit
-
+```bash
+nix bundle --bundler github:ralismark/nix-appimage github:csicar/bookman-linux
+```
