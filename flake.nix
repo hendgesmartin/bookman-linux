@@ -26,7 +26,7 @@
         packages.default = pkgs.writeShellApplication
           {
             name = "bookman";
-            runtimeInputs = [ packages.coreutils ];
+            runtimeInputs = [ pkgs.coreutils pkgs.xdg-utils  ];
             text = ''
               mkdir -p "$HOME/.config/bookman"
               "${pkgs.jdk}/bin/java" \
