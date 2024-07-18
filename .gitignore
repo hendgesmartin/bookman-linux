@@ -1,6 +1,3 @@
-.idea/
-jars/*.jar
 override/**/*.class
-home/*
-!home/.gitkeep
-*.exe
+/result
+*.AppImage
