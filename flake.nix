@@ -22,7 +22,7 @@
         packages.default = pkgs.writeShellApplication
           {
             name = "bookman";
-            runtimeInputs = [ pkgs.coreutils pkgs.xdg-utils  ];
+            runtimeInputs = [ pkgs.coreutils pkgs.xdg-utils pkgs.firefox  ];
             text = ''
               mkdir -p "$HOME/.config/bookman"
               "${jdk}/bin/java" \
