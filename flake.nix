@@ -5,7 +5,7 @@
   inputs.install4j.url = "https://maven.ej-technologies.com/repository/com/install4j/install4j-runtime/10.0.8/install4j-runtime-10.0.8.jar";
   inputs.install4j.flake = false;
 
-  inputs.bookman-windows-download.url = "https://cockpit.bookman-gmbh.de/api/java/update/newest/WINDOWS/file"; # 1.16
+  inputs.bookman-windows-download.url = "https://bit.ly/3smjJRP"; # 1.17.3
   inputs.bookman-windows-download.flake = false;
 
   inputs.flake-utils.url = "github:numtide/flake-utils";
@@ -27,10 +27,16 @@
               mkdir -p "$HOME/.config/bookman"
               "${jdk}/bin/java" \
                   -Duser.home="$HOME/.config/bookman" \
+                  --add-opens javafx.controls/javafx.scene.control.skin=ALL-UNNAMED \
+                  -Xmx1536m \
+                  -Dorg.apache.pdfbox.rendering.UsePureJavaCMYKConversion=true \
+                  -Dfile.encoding=utf-8 \
+                  -Dorg.jpedal.downsample="medium" \
                   -Dde.bookman.deployMode=LIVE \
-                  -Dde.bookman.javaBackendUri=https://cockpit.bookman-gmbh.de/api/java/ \
-                  -Dde.bookman.microsoftApplicationId=a7719d9a-1877-4bd1-a3c7-e3f8edf86485 \
-                  -Dde.bookman.microsoftSsoRedirectUrl=http://localhost:4826 \
+                  -Dde.bookman.javaBackendUri="https://cockpit.bookman-gmbh.de/api/java/" \
+                  -Dde.bookman.registrationUri="https://app.bookman.de/#/registrieren" \
+                  -Dde.bookman.microsoftApplicationId="a7719d9a-1877-4bd1-a3c7-e3f8edf86485" \
+                  -Dde.bookman.microsoftSsoRedirectUrl="http://localhost:4826" \
                   --add-modules javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.controls \
                   --add-exports javafx.base/com.sun.javafx.event=org.controlsfx.controls \
                   --add-opens javafx.base/com.sun.javafx.event=ALL-UNNAMED \
@@ -38,6 +44,16 @@
                   de.bookman.start.MainGradle
             '';
           };
+
+
+
+                  # -Dde.bookman.deployMode=LIVE \
+                  # -Dde.bookman.javaBackendUri=https://cockpit.bookman-gmbh.de/api/java/ \
+                  # -Dde.bookman.microsoftApplicationId=a7719d9a-1877-4bd1-a3c7-e3f8edf86485 \
+                  # -Dde.bookman.microsoftSsoRedirectUrl=http://localhost:4826 \
+                  # --add-modules javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.controls \
+                  # --add-exports javafx.base/com.sun.javafx.event=org.controlsfx.controls \
+                  # --add-opens javafx.base/com.sun.javafx.event=ALL-UNNAMED \
 
         packages.bookman-overrides = pkgs.runCommand "bookman-overrides"
           {
