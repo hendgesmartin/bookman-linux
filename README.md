@@ -18,3 +18,12 @@ AppImage for non-nix installs
 ```bash
 nix bundle --bundler github:ralismark/nix-appimage github:csicar/bookman-linux
 ```
+
+
+Update on version changes
+-------------------------
+When a new version of Bookman is published and you need to rebuild, you must update the flake first:
+
+```bash
+nix flake update --flake github:csicar/bookman-linux --extra-experimental-features nix-command --extra-experimental-features flakes
+```
