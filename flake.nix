@@ -5,7 +5,7 @@
   inputs.install4j.url = "https://maven.ej-technologies.com/repository/com/install4j/install4j-runtime/10.0.8/install4j-runtime-10.0.8.jar";
   inputs.install4j.flake = false;
 
-  inputs.bookman-windows-download.url = "https://bit.ly/3smjJRP"; # 1.17.3
+  inputs.bookman-windows-download.url = "https://cockpit.bookman-gmbh.de/api/java/update/newest/WINDOWS/file"; # 1.17.3
   inputs.bookman-windows-download.flake = false;
 
   inputs.flake-utils.url = "github:numtide/flake-utils";

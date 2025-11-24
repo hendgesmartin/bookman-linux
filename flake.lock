@@ -5,11 +5,11 @@
       "locked": {
         "narHash": "sha256-oXGygTa9AaCPm1xO8ts7T4qfaa7oiTTyjxYZm7DM4rU=",
         "type": "file",
-        "url": "https://bit.ly/3smjJRP"
+        "url": "https://cockpit.bookman-gmbh.de/api/java/update/newest/WINDOWS/file"
       },
       "original": {
         "type": "file",
-        "url": "https://bit.ly/3smjJRP"
+        "url": "https://cockpit.bookman-gmbh.de/api/java/update/newest/WINDOWS/file"
       }
     },
     "flake-utils": {
